@@ -1,0 +1,23 @@
+@import "./components/colors.scss";
+@import "./components/buttons.scss";
+
+body{
+  background-color: #FFFBED;
+}
+
+.wrapper{
+  max-width: 1200px;
+  margin: 0px auto;
+  // overflow: hidden;
+  font-family: "roboto";
+}
+
+.bigText{
+  //styleName: H2 - Header;
+  font-size: 28px;
+  font-weight: 800;
+  line-height: 40px;
+  letter-spacing: 0.01em;
+  text-align: left;
+  color: rgba(78, 45, 45, 1);
+}

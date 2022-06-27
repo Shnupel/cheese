@@ -1,0 +1,29 @@
+@import "../../assets/scss/ourStyles.scss";
+
+.categorys{
+  border: 1px solid rgba(230, 230, 230, 1);
+  max-width: 280px;
+  border-radius: 6px;
+  margin-bottom: 20px;
+  .title{
+    background: rgba(251, 232, 187, 1);
+    color: $--brown;
+    padding: 12px 16px;
+    display: flex;
+    align-items: center;
+    img{
+      margin-right: 8px;
+    }
+  }
+  .category{
+    background: rgb(255, 255, 255);
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: rgba(41, 41, 41, 1);
+    padding: 12px 16px;
+    border: 1px solid rgba(230, 230, 230, 1);
+  }
+}
