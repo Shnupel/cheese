@@ -1,0 +1,101 @@
+@import "../../assets/scss/ourStyles.scss";
+
+.filterItem{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  .button{
+    display: flex;
+    align-items: center;
+    border: 1px solid rgba(41, 41, 41, 1);
+    border-radius: 5px;
+    background-color: inherit;
+    cursor: pointer;
+    padding: 10px 20px;
+    //background: rgba(78, 45, 45, 1);
+    svg{
+      margin-right: 8px;
+    }
+    span{
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 24px;
+      letter-spacing: 0em;
+      text-align: center;
+      color: rgba(41, 41, 41, 1);
+      //color: rgba(255, 255, 255, 1);
+    }
+  }
+}
+
+.filters{
+  display: flex;
+  align-items: center;
+  margin-top: 24px;
+  padding: 16px 20px 16px 30px;
+  justify-content: space-between;
+  border: 1px solid rgba(253, 147, 57, 0.2);
+  // background: linear-gradient(0deg, rgba(253, 147, 57, 0.2), rgba(253, 147, 57, 0.2)),linear-gradient(0deg, rgba(253, 147, 57, 0.1), rgba(253, 147, 57, 0.1));
+  background-color: #FFF1DC;
+  border-radius: 5px;
+  .chooseFilters{
+    display: flex;
+    align-items: center;
+    .chooseFilter{
+      display: flex;
+      align-items: center;
+      margin-right: 30px;
+      span{
+        font-size: 16px;
+        color: #000;
+        font-weight: 400;
+        line-height: 24px;
+        letter-spacing: 0.01em;
+        text-align: left;
+        //color: rgba(253, 147, 57, 1);
+      }
+      svg{
+        transform: rotate(90deg);
+        height: 24px;
+        width: 24px;
+      }
+    }
+  }
+}
+
+.choosedFilters{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 30px;
+  .choosedSomeFilter{
+    display: flex;
+    align-items: center;
+  }
+  .choosedFilter{
+    display: flex;
+    background-color: rgba(78, 45, 45, 0.1);
+    border-radius: 5px;
+    padding: 4px 8px 4px 14px;
+    align-items: center;
+    margin-right: 10px;
+    span{
+      color: rgba(78, 45, 45, 1);
+      font-size: 14px;
+      margin-right: 4px;
+      font-weight: 400;
+      line-height: 24px;
+      letter-spacing: 0.01em;
+      text-align: left;
+    }
+  }
+  .cleanFilter{
+    color: rgba(78, 45, 45, 1);
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 28px;
+    letter-spacing: 0.01em;
+    text-align: left;
+    text-decoration: underline;
+  }
+}
