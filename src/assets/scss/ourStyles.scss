@@ -1,14 +1,19 @@
 @import "./components/colors.scss";
 @import "./components/buttons.scss";
 
+*{
+  box-sizing: border-box;
+}
+
 body{
   background-color: #FFFBED;
+  overflow-x: hidden;
 }
 
 .wrapper{
   max-width: 1200px;
   margin: 0px auto;
-  // overflow: hidden;
+  overflow: hidden;
   font-family: "roboto";
 }
 

@@ -1,0 +1,13 @@
+@import "../../../assets/scss/ourStyles.scss";
+
+.slider{
+  // max-width: 980px;
+  max-width: 100%;
+  margin: 0px;
+  display: flex;
+  align-items: center;
+  margin-top: 16px;
+  .slide{
+    min-width: 220px;
+  }
+}

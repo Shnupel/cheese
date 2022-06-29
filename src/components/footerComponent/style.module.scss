@@ -1,9 +1,11 @@
 .footer{
   padding: 60px 0px;
   background-color: #fff;
-  display: flex;
-  justify-content: space-between;
   margin-top: 100px;
+  .footerItem{
+    display: flex;
+    justify-content: space-between;
+  }
 }
 
 .item{

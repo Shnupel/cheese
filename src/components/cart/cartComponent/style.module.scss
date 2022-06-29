@@ -1,0 +1,92 @@
+.wrapper{
+  background-color: #fff;
+  border: 1px solid rgba(231, 231, 231, 1);
+  padding: 14px;
+  max-width: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 6px;
+  margin-bottom: 16px;
+  flex: 1 1 auto;
+  margin-right: 15px;
+  .img{
+    flex: 1 1 auto;
+    margin-bottom: 24px;
+  }
+  .text{
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 20px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: rgba(41, 41, 41, 1);
+    margin-bottom: 28px;
+  }
+  .content{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .cost{
+      .costNow{
+        font-size: 16px;
+        text-align: left;
+        font-weight: 400;
+        letter-spacing: 0.01em;
+        text-align: left;
+        color: rgba(41, 41, 41, 1);
+      }
+      .costLast{
+        font-size: 13px;
+        font-weight: 400;
+        line-height: 16px;
+        letter-spacing: 0.01em;
+        text-align: left;
+        color: rgba(255, 79, 79, 1);
+      }
+    }
+    .byButton{
+      background: rgba(253, 147, 57, 1);
+      padding: 7px 10px;
+      border: 0px solid rgba(253, 147, 57, 1);
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 24px;
+      letter-spacing: 0em;
+      text-align: center;
+      color: #fff;
+      display: inline;
+      border-radius: 5px;
+    }
+  }
+}
+
+.wrapperAnalog{
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  border: 1px solid rgba(230, 230, 230, 1);
+  border-radius: 8px;
+  padding: 14px 10px;
+  img{
+    width: auto;
+    height: 110px;
+  }
+  .text{
+    font-size: 14px;
+    color: rgba(41, 41, 41, 1);
+    margin-bottom: 10px;
+    font-weight: 400;
+    line-height: 20px;
+    letter-spacing: 0em;
+    text-align: left;
+  }
+  .cost{
+    font-size: 15px;
+    color: rgba(253, 147, 57, 1);
+    font-weight: 700;
+    line-height: 20px;
+    letter-spacing: 0.01em;
+    text-align: left;
+  }
+}
