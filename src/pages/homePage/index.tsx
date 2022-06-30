@@ -1,4 +1,6 @@
 import React from "react";
+import { useAppDispatch } from "../../App";
+import { fetchProducts } from "../../redux/slises/ProductSlise";
 import HeaderComponent from "../../components/headerComponent";
 import style from "./styles.module.scss";
 import "../../assets/scss/ourStyles.scss";
@@ -9,6 +11,11 @@ import ListCartsComponent from "../../components/cart/cartsComponentBlocks/Carts
 import CartSlider from "../../components/cart/cartsComponentSlider/CartSlider";
 
 const HomePage: React.FC = () => {
+  const dispatch = useAppDispatch();
+  React.useEffect(() => {
+    dispatch(fetchProducts());
+  }, []);
+
   return(
     <>
       <div className="wrapper">
