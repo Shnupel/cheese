@@ -42,6 +42,9 @@
   display: flex;
   align-items: center;
   margin-top: 20px;
+  .sourceHref{
+    text-decoration: none;
+  }
   .sourseItem{
     font-size: 14px;
     font-weight: 400;
@@ -49,6 +52,7 @@
     letter-spacing: 0.01em;
     text-align: left;
     color: rgba(128, 128, 128, 1);
+    text-decoration: none;
   }
   .sourceImg{
     height: 22px;

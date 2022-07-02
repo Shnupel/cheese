@@ -9,14 +9,10 @@ import FooterComponent from '../../components/footerComponent/FooterComponent';
 const CartPage: React.FC = () => {
   return (
     <>
-      <div className="wrapper">
-        <HeaderComponent />
-        <div className={ style.interactiveContent }>
-          <SidebarComponent />
-          <CartItem />
-        </div>
+      <div className={ style.interactiveContent }>
+        <SidebarComponent />
+        <CartItem />
       </div>
-      <FooterComponent />
     </>
   )
 }

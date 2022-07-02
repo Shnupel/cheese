@@ -1,4 +1,7 @@
 import React from "react";
+import { Link, useLocation } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { filterState } from "../../redux/slises/FilterSlice";
 import NavComponent from "../navComponent";
 import style from "./styles.module.scss";
 import arrowSource from "../../assets/img/icons/arrows-diagrams-041.svg";
@@ -7,6 +10,8 @@ import timeSvg from "../../assets/img/icons/alarm-clock-time-timer.svg";
 import userSvg from "../../assets/img/icons/users-06.svg";
 
 const HeaderComponent: React.FC = () =>{
+  const filter = useSelector(filterState);
+  const location = useLocation();
   return (
     <>
       <div className={ style.top }>
@@ -22,15 +27,17 @@ const HeaderComponent: React.FC = () =>{
         </div>
       </div>
       <NavComponent />
-      <div className={ style.source }>
-        <div className={ style.sourseItem }>Главная</div>
-        <img src={ arrowSource } className={ style.sourceImg } alt="/" />
-        <div className={ style.sourseItem }>Ингредиенты</div>
-        <img src={ arrowSource } className={ style.sourceImg } alt="/" />
-        <div className={ style.sourseItem }>Кисломолочные закваски</div>
-        <img src={ arrowSource } className={ style.sourceImg } alt="/" />
-        <div className={ style.sourseItem }>Мезофильная закваска Hansen Flora Danica (50U)</div>
-      </div>
+      {
+        location.pathname !== "/" && (
+          <div className={ style.source }>
+            <Link className={ style.sourceHref } to="/"><div className={ style.sourseItem }>Главная</div></Link>
+            <img src={ arrowSource } className={ style.sourceImg } alt="/" />
+            <Link className={ style.sourceHref } to="/categoryPage"><div className={ style.sourseItem }> { filter.typeCategory.categoryName } </div></Link>
+            <img src={ arrowSource } className={ style.sourceImg } alt="/" />
+            <div className={ style.sourseItem }> { filter.category.categoryName } </div>
+          </div>
+        )
+      }
     </>
   )
 }

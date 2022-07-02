@@ -1,12 +1,12 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import style from "./style.module.scss";
-import productImg from "../../../assets/img/image/Rectangle65.png";
 import { ICartProduct } from '../../../types/types';
 
 const CartComponent: React.FC<{ product: ICartProduct }> = ({ product }) => {
   return (
     <div className={ style.wrapper }>
-      <img src={ product.image[0] } alt="" className={ style.img } />
+      <Link to="/"> <img src={ product.image[0] } alt="" className={ style.img } /> </Link>
       <div className={ style.text }> { product.name } </div>
       <div className={ style.content }>
         <div className={ style.cost }>

@@ -17,17 +17,20 @@
       margin-right: 8px;
     }
   }
-  .category{
-    background: rgb(255, 255, 255);
-    font-size: 16px;
-    white-space: nowrap;
-    font-weight: 400;
-    overflow: hidden;
-    line-height: 24px;
-    letter-spacing: 0em;
-    text-align: left;
-    color: rgba(41, 41, 41, 1);
-    padding: 12px 16px;
-    border: 1px solid rgba(230, 230, 230, 1);
+  .href{
+    text-decoration: none;
+    .category{
+      background: rgb(255, 255, 255);
+      font-size: 16px;
+      white-space: nowrap;
+      font-weight: 400;
+      overflow: hidden;
+      line-height: 24px;
+      letter-spacing: 0em;
+      text-align: left;
+      color: rgba(41, 41, 41, 1);
+      padding: 12px 16px;
+      border: 1px solid rgba(230, 230, 230, 1);
+    }
   }
 }

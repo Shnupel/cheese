@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
-import { RootState } from '../store';
 import { ICartProduct } from '../../types/types';
+import { RootState } from '../store';
 
 interface CounterState {
   Products: ICartProduct[],
@@ -19,9 +19,8 @@ const initialState: CounterState = {
   loadingStatus: loadingStatus.LOADING
 }
 
-export const fetchProducts = createAsyncThunk('users/fetchProducts',  async () => {
-  const { data } = await axios.get<ICartProduct[]>("https://62b717d3491a19c97aee79aa.mockapi.io/prod");
-  console.log("r");
+export const fetchProducts = createAsyncThunk('users/fetchProducts',  async(categorys: { category: string, pathname: string }) => {
+  const { data } = await axios.get<ICartProduct[]>(`https://62b717d3491a19c97aee79aa.mockapi.io/${ categorys.pathname }?${ categorys.category }`);
   return data;
 })
 
@@ -33,19 +32,17 @@ export const productSlice = createSlice({
     builder.addCase(fetchProducts.pending, (state) => {
       state.Products = [];
       state.loadingStatus = loadingStatus.LOADING;
-      console.log("loading");
     })
     builder.addCase(fetchProducts.fulfilled, (state, action) => {
       state.Products = [...action.payload];
       state.loadingStatus = loadingStatus.SUCCES;
-      console.log("succes");
     })
     builder.addCase(fetchProducts.rejected, (state) => {
       state.Products = [];
       state.loadingStatus = loadingStatus.ERROR;
-      console.log("error");
     })
   }
-})
+});
 
+export const loadingData = ((state: RootState) => state.product.loadingStatus)
 export default productSlice.reducer;

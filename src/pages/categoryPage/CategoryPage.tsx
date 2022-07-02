@@ -9,16 +9,12 @@ import FiltrationComponent from '../../components/fitrationComponent/FiltrationC
 
 const CategoryPage = () => {
   return (
-    <div className='wrapper'>
-      <HeaderComponent />
-      <div className={ style.interactiveContent }>
-        <SidebarComponent />
-        <div className="content">
-          <FiltrationComponent />
-          <ListCartsComponent />
-        </div>
+    <div className={ style.interactiveContent }>
+      <SidebarComponent />
+      <div className="content">
+        <FiltrationComponent />
+        <ListCartsComponent />
       </div>
-      <FooterComponent />
     </div>
   )
 }
