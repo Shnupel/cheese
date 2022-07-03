@@ -1,14 +1,19 @@
 import React from 'react';
 import style from "./style.module.scss";
 import productImg from "../../../assets/img/image/Rectangle65.png";
+import { ICartProduct } from '../../../types/types';
 
-const CartComponentAnalog = () => {
+interface IProps {
+  product: ICartProduct
+}
+
+const CartComponentAnalog: React.FC<IProps> = ({ product }) => {
   return (
     <div className={ style.wrapperAnalog }>
-      <img src={ productImg } alt="" className={ style.img } />
+      <img src={ product.image[0] } alt="" className={ style.img } />
       <div className={ style.content }>
-      <div className={ style.text }>Мезофильная закваска Danisco CHOOZIT MM...</div>
-        <div className={ style.cost }>1300₽/ 1 шт.</div>
+      <div className={ style.text }> { product.name } </div>
+        <div className={ style.cost }> { product.cost } / 1 шт.</div>
       </div>
     </div>
   )

@@ -10,7 +10,7 @@ import style from "./style.module.scss";
 const CartSlider: React.FC<{ type: string }> = (props) => {
   const CartSlide = props.type === "analog" ? CartComponentAnalog : CartComponent;
   const ourProducts = useSelector((state: RootState) => state.product.Products);
-  const slidesPerView = props.type === "analog" ? 3 : 5 
+  const slidesPerView = props.type === "analog" ? 3 : 5 ;
   return (
     <>
       <Swiper

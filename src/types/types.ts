@@ -6,5 +6,6 @@ export type ICartProduct = {
   sale?: number,
   category: number,
   about?: string,
-  includes?: string
+  includes?: string,
+  counter: number
 }

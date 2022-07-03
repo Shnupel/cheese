@@ -6,7 +6,7 @@ import { ICartProduct } from '../../../types/types';
 const CartComponent: React.FC<{ product: ICartProduct }> = ({ product }) => {
   return (
     <div className={ style.wrapper }>
-      <Link to="/"> <img src={ product.image[0] } alt="" className={ style.img } /> </Link>
+      <Link to={ `/cartPage/${ product.id }` }> <img src={ product.image[0] } alt="" className={ style.img } /> </Link>
       <div className={ style.text }> { product.name } </div>
       <div className={ style.content }>
         <div className={ style.cost }>

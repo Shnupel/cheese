@@ -5,7 +5,7 @@ import { RootState } from '../store';
 
 interface CounterState {
   Products: ICartProduct[],
-  loadingStatus: string
+  loadingStatus: string,
 }
 
 enum loadingStatus {
@@ -16,13 +16,14 @@ enum loadingStatus {
 
 const initialState: CounterState = {
   Products: [],
-  loadingStatus: loadingStatus.LOADING
+  loadingStatus: loadingStatus.LOADING,
 }
 
 export const fetchProducts = createAsyncThunk('users/fetchProducts',  async(categorys: { category: string, pathname: string }) => {
-  const { data } = await axios.get<ICartProduct[]>(`https://62b717d3491a19c97aee79aa.mockapi.io/${ categorys.pathname }?${ categorys.category }`);
+  const getCategory = categorys.category !== "-1" ? `category=${ categorys.category }` : "";
+  const { data } = await axios.get<ICartProduct[]>(`https://62b717d3491a19c97aee79aa.mockapi.io/${ categorys.pathname }?&${ getCategory }`);
   return data;
-})
+});
 
 export const productSlice = createSlice({
   name: 'products',
@@ -44,5 +45,5 @@ export const productSlice = createSlice({
   }
 });
 
-export const loadingData = ((state: RootState) => state.product.loadingStatus)
+export const loadingData = ((state: RootState) => state.product.loadingStatus);
 export default productSlice.reducer;
