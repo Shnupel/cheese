@@ -8,6 +8,20 @@ const FiltrationComponent: React.FC = () => {
   const [openingMenu, setOpeningMenu] = React.useState(false);
   const [showStockProd, setShowStockProd] = React.useState(false);
   const loadingRequest = useSelector(loadingData);
+
+  const [popupStatus, setPopupStatus] = React.useState(false);
+  const popupRef = React.useRef<HTMLDivElement>(null);
+  React.useEffect(() => {
+    const addClass = (event: any) => {
+      if(!event.path.includes(popupRef.current)){
+        setPopupStatus(false);
+      }
+    }
+    document.body.addEventListener("click", addClass);
+
+    return (() => document.body.removeEventListener("click", addClass));
+  }, [popupStatus]);
+
   return (
     <div>
       <div className={ style.filterItem }>

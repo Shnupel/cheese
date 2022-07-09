@@ -1,4 +1,4 @@
-export type ICartProduct = {
+export interface ICartProduct {
   id: number,
   name: string,
   image: string[],

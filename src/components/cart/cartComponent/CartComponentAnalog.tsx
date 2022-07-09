@@ -1,6 +1,5 @@
 import React from 'react';
 import style from "./style.module.scss";
-import productImg from "../../../assets/img/image/Rectangle65.png";
 import { ICartProduct } from '../../../types/types';
 
 interface IProps {
