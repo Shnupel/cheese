@@ -20,7 +20,7 @@ const CartItem: React.FC = () => {
     axios.get(`https://62b717d3491a19c97aee79aa.mockapi.io/${ prodCategory.typeCategory.categoryPathName }?id=${ param.id }`)
     .then((responce) => responce.data)
     .then((result) => setData(result[0]))
-  }, []);
+  }, [param.id]);
   const increment = (data: ICartProduct) => {
     dispatch(addCart({...data, counter: 0}));
   }
