@@ -9,7 +9,7 @@ const CartComponent: React.FC<{ product: ICartProduct }> = ({ product }) => {
   const dispatch = useDispatch();
   return (
     <div className={ style.wrapper }>
-      <Link to={ `/cartPage/${ product.id }` }> <img src={ product.image[0] } alt="" className={ style.img } /> </Link>
+      <Link to={ `/cartPage/${ product.id }` } onClick={ () => window.scrollTo({ top: 0 }) } > <img src={ product.image[0] } alt="" className={ style.img } /> </Link>
       <div className={ style.text }> { product.name } </div>
       <div className={ style.content }>
         <div className={ style.cost }>

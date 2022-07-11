@@ -5,6 +5,10 @@ import SidebarComponent from '../../components/sidebar/SidebarComponent';
 import CartItem from './CartItem';
 
 const CartPage: React.FC = () => {
+  React.useEffect(() => window.scrollTo({
+    top: 0
+  }), []);
+
   return (
     <>
       <div className={ style.interactiveContent }>
