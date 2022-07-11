@@ -79,6 +79,11 @@
       justify-content: center;
       border-radius: 50%;
     }
+    .wrapedBasketComponent{
+      position: absolute;
+      top: 100%;
+      right: 0px;
+    }
   }
 }
 
@@ -103,5 +108,24 @@
         margin-right: 2px;
       }
     }
+  }
+}
+
+.basketForm{
+  padding: 30px 20px;
+  background-color: #fff;
+  border-radius: 6px;
+  z-index: 40;
+  position: relative;
+  .title{
+    color: $--brown !important;
+    font-size: 22px !important;
+    padding-bottom: 30px !important;
+    border-bottom: 1px solid rgba(231, 231, 231, 1) !important;
+    font-weight: 700 !important;
+    line-height: 21px !important;
+    letter-spacing: 0em !important;
+    text-align: left !important;
+    white-space: nowrap !important;
   }
 }

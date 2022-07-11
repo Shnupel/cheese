@@ -1,0 +1,71 @@
+.productCart{
+  display: flex;
+  // align-items: center;
+  padding: 24px 0px;
+  border-bottom: 1px solid rgba(231, 231, 231, 1);
+  .image{
+    border: 1px solid rgba(231, 231, 231, 1);
+    border-radius: 5px;
+    height: 90px;
+    width: 90px;
+    margin-right: 20px;
+  }
+  .info{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    .name{
+      font-size: 16px;
+      color: rgba(41, 41, 41, 1);
+      width: 240px;
+      font-weight: 400;
+      line-height: 20px;
+      letter-spacing: 0.01em;
+      text-align: left;
+      font-weight: 500;
+      margin-bottom: 14px;
+    }
+    .counterControl{
+      display: flex;
+      border: 1px solid rgba(128, 128, 128, 0.2);
+      border-radius: 5px;
+      height: 36px;
+      .counter{
+        border: 1px solid rgba(128, 128, 128, 0.2);
+        width: 36px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 18px;
+      }
+      button{
+        width: 36px;
+        background-color: inherit;
+        border: 0px solid #fff;
+        cursor: pointer;
+      }
+    }
+  }
+  .right{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100%;
+    justify-content: space-between;
+    svg{
+      height: 32px;
+      width: 32px;
+      padding: 5px;
+      cursor: pointer;
+    }
+    span{
+      white-space: nowrap;
+      font-size: 16px;
+      color: rgba(41, 41, 41, 1);
+      font-weight: 700;
+      line-height: 36px;
+      letter-spacing: 0.01em;
+      text-align: right;
+    }
+  }
+}

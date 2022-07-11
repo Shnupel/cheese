@@ -14,15 +14,15 @@ const basketSlice = createSlice({
   name: "basket",
   initialState,
   reducers: {
-    addCart: (state, action) => {
+    addCart: (state, action: { payload: ICartProduct }) => {
       const prodId = state.basket.findIndex(_basket => _basket.id === action.payload.id);
       if(prodId !== -1){
         state.basket[prodId].counter += 1;
       }else{
-        state.basket.push(action.payload);
+        state.basket.push({...action.payload, counter: 1});
       }
     },
-    decrementCart: (state, action) => {
+    decrementCart: (state, action: { payload: ICartProduct }) => {
       const prodId = state.basket.findIndex(_basket => _basket.id === action.payload.id);
       if(prodId !== -1){
         state.basket[prodId].counter -= 1;
@@ -30,10 +30,13 @@ const basketSlice = createSlice({
           state.basket = state.basket.filter(_basket => _basket.id !== action.payload.id);
         }
       }
+    },
+    deleteCart: (state, action: { payload: ICartProduct }) => {
+      state.basket = state.basket.filter(_basket => _basket.id !== action.payload.id);
     }
   }
 })
 
-export const { addCart, decrementCart } = basketSlice.actions;
+export const { addCart, decrementCart, deleteCart } = basketSlice.actions;
 export const basketSliceSource = ((state: RootState) => state.basket.basket);
 export default basketSlice.reducer;
