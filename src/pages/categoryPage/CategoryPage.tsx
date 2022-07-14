@@ -1,19 +1,19 @@
-import React from 'react'
-import HeaderComponent from '../../components/headerComponent';
+import React from 'react';
+import { useSelector } from 'react-redux';
+import { loadingStatus, loadingData } from '../../redux/slises/ProductsSlise';
 import style from "./style.module.scss";
-import "../../assets/scss/ourStyles.scss";
-import FooterComponent from '../../components/footerComponent/FooterComponent';
 import SidebarComponent from '../../components/sidebar/SidebarComponent';
 import ListCartsComponent from '../../components/cart/cartsComponentBlocks/CartsComponent';
 import FiltrationComponent from '../../components/fitrationComponent/FiltrationComponent';
 
 const CategoryPage = () => {
+  const loadStatus = useSelector(loadingData);
   return (
     <div className={ style.interactiveContent }>
       <SidebarComponent />
-      <div className="content">
+      <div className={ style.content }>
         <FiltrationComponent />
-        <ListCartsComponent />
+        { loadStatus === loadingStatus.SUCCES && <ListCartsComponent /> }
       </div>
     </div>
   )

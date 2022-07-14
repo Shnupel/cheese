@@ -10,7 +10,7 @@ const PopUpCategorys: React.FC = () => {
       {
         ingridients.map((ingridient, i) => <PopUpCategory key={ i } data={{ ingridient, i }} />)
       }
-      <button className={ style.button }>Применить</button>
+      {/* <button className={ style.button }>Применить</button> */}
     </div>
   )
 }

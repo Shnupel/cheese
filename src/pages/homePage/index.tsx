@@ -1,4 +1,6 @@
 import React from "react";
+import { useSelector } from "react-redux";
+import { loadingStatus, loadingData } from "../../redux/slises/ProductsSlise";
 import style from "./styles.module.scss";
 import "../../assets/scss/ourStyles.scss";
 import SidebarComponent from "../../components/sidebar/SidebarComponent";
@@ -7,6 +9,7 @@ import ListCartsComponent from "../../components/cart/cartsComponentBlocks/Carts
 import CartSlider from "../../components/cart/cartsComponentSlider/CartSlider";
 
 const HomePage: React.FC = () => {
+  const loadStatus = useSelector(loadingData);
   return(
     <>
       <div className={ style.carts }>
@@ -32,7 +35,7 @@ const HomePage: React.FC = () => {
             <span> Акции </span>
           </div>
           <div className="bigText">Ингредиенты</div>
-          <ListCartsComponent />
+          { loadingStatus.SUCCES === loadStatus && <ListCartsComponent /> }
         </div>
       </div>
       <div className={ style.banners }>

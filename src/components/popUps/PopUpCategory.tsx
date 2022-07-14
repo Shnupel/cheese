@@ -24,4 +24,4 @@ const PopUpCategory: React.FC<{ data: { ingridient: string, i: number } }> = ({ 
   )
 }
 
-export default PopUpCategory
+export default PopUpCategory;

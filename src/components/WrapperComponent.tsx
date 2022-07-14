@@ -6,11 +6,13 @@ import { Outlet, OutletProps } from 'react-router-dom';
 
 const WrapperComponent: React.FC = () => {
   return (
-    <div className="wrapper">
-      <HeaderComponent />
-      <Outlet />
+    <>
+      <div className="wrapper">
+        <HeaderComponent />
+        <Outlet />
+      </div>
       <FooterComponent />
-    </div>
+    </>
   )
 }
 

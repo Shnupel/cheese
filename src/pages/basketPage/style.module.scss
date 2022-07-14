@@ -1,20 +1,20 @@
-.productCart{
+.productCart {
   display: flex;
   // align-items: center;
   padding: 24px 0px;
   border-bottom: 1px solid rgba(231, 231, 231, 1);
-  .image{
+  .image {
     border: 1px solid rgba(231, 231, 231, 1);
     border-radius: 5px;
     height: 90px;
     width: 90px;
     margin-right: 20px;
   }
-  .info{
+  .info {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    .name{
+    .name {
       font-size: 16px;
       color: rgba(41, 41, 41, 1);
       width: 240px;
@@ -25,12 +25,12 @@
       font-weight: 500;
       margin-bottom: 14px;
     }
-    .counterControl{
+    .counterControl {
       display: flex;
       border: 1px solid rgba(128, 128, 128, 0.2);
       border-radius: 5px;
       height: 36px;
-      .counter{
+      .counter {
         border: 1px solid rgba(128, 128, 128, 0.2);
         width: 36px;
         display: flex;
@@ -38,7 +38,7 @@
         justify-content: center;
         font-size: 18px;
       }
-      button{
+      button {
         width: 36px;
         background-color: inherit;
         border: 0px solid #fff;
@@ -46,19 +46,19 @@
       }
     }
   }
-  .right{
+  .right {
     display: flex;
     flex-direction: column;
     align-items: center;
     min-height: 100%;
     justify-content: space-between;
-    svg{
+    svg {
       height: 32px;
       width: 32px;
       padding: 5px;
       cursor: pointer;
     }
-    span{
+    span {
       white-space: nowrap;
       font-size: 16px;
       color: rgba(41, 41, 41, 1);

@@ -8,7 +8,7 @@ interface CounterState {
   loadingStatus: string,
 }
 
-enum loadingStatus {
+export enum loadingStatus {
   SUCCES = "success",
   ERROR = "error",
   LOADING = "loading",
