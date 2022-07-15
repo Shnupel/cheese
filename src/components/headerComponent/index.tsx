@@ -2,7 +2,7 @@ import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { initialCategorys, filterState, addCategory } from "../../redux/slises/FilterSlice";
-import NavComponent from "../navComponent";
+import NavComponent from "./navComponent";
 import style from "./styles.module.scss";
 import arrowSource from "../../assets/img/icons/arrows-diagrams-041.svg";
 import locationSvg from "../../assets/img/icons/interface-essential.svg";

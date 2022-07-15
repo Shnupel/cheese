@@ -4,7 +4,7 @@ import { loadingStatus, loadingData } from '../../redux/slises/ProductsSlise';
 import style from "./style.module.scss";
 import SidebarComponent from '../../components/sidebar/SidebarComponent';
 import ListCartsComponent from '../../components/cart/cartsComponentBlocks/CartsComponent';
-import FiltrationComponent from '../../components/fitrationComponent/FiltrationComponent';
+import FiltrationComponent from '../../components/headerComponent/fitrationComponent/FiltrationComponent';
 
 const CategoryPage = () => {
   const loadStatus = useSelector(loadingData);

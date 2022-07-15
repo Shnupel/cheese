@@ -1,15 +1,15 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { basketSliceSource } from "../../redux/slises/BasketSlice";
+import { basketSliceSource } from "../../../redux/slises/BasketSlice";
 import style from "./style.module.scss";
-import SearchComponent from "../searchComponent/SearchComponent";
+import SearchComponent from "./searchComponent/SearchComponent";
 import BasketForm from "./basketForm";
-import logoSvg from "../../assets/img/icons/logo.svg";
-import deliverySvg from "../../assets/img/icons/delivery.svg";
-import creditCart from "../../assets/img/icons/credit-card-repeat.svg";
-import userProtectionSvg from "../../assets/img/icons/user-protection-shield-square.svg";
-import basketSvg from "../../assets/img/icons/shopping-cart.svg";
-import arrowSvg from "../../assets/img/icons/arrows-diagrams-04.svg";
+import logoSvg from "../../../assets/img/icons/logo.svg";
+import deliverySvg from "../../../assets/img/icons/delivery.svg";
+import creditCart from "../../../assets/img/icons/credit-card-repeat.svg";
+import userProtectionSvg from "../../../assets/img/icons/user-protection-shield-square.svg";
+import basketSvg from "../../../assets/img/icons/shopping-cart.svg";
+import arrowSvg from "../../../assets/img/icons/arrows-diagrams-04.svg";
 
 const NavComponent: React.FC = () => {
   const reduxBasket = useSelector(basketSliceSource);

@@ -1,6 +1,6 @@
 import React from "react";
 import style from "./style.module.scss";
-import loupSvg from "../../assets/img/icons/search-loupe.svg";
+import loupSvg from "../../../../assets/img/icons/search-loupe.svg";
 
 const SearchComponent: React.FC = () => {
   return (

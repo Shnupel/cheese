@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { basketSliceSource } from '../../redux/slises/BasketSlice';
-import BasketProductCart from '../../pages/basketPage/product';
+import { basketSliceSource } from '../../../redux/slises/BasketSlice';
+import BasketProductCart from '../../../pages/basketPage/product';
 import style from "./style.module.scss";
 
 const BasketForm: React.FC = () => {

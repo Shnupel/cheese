@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { loadingData } from '../../redux/slises/ProductsSlise';
-import PopUpCategorys from '../popUps/PopUpCategorys';
+import { loadingData } from '../../../redux/slises/ProductsSlise';
+import PopUpCategorys from '../../popUps/PopUpCategorys';
 import style from "./style.module.scss";
 
 const FiltrationComponent: React.FC = () => {
