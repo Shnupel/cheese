@@ -14,8 +14,20 @@ import arrowSvg from "../../../assets/img/icons/arrows-diagrams-04.svg";
 const NavComponent: React.FC = () => {
   const reduxBasket = useSelector(basketSliceSource);
   const [openedBasketForm, setOpenedBasketForm] = React.useState(false);
-  const [costAllChoosedProduct, setCostAllChoosedProduct] = React.useState(0);
   const basketForm = React.useRef<HTMLDivElement>(null);
+
+  const basketCounterProducts = React.useCallback(() => {
+    let counter: number = 0;
+    reduxBasket.forEach(basketElem => counter += basketElem.counter);
+    return counter;
+  }, [reduxBasket]);
+
+  const costAllChoosedProduct = React.useCallback(() => {
+    let counter = 0;
+    reduxBasket.forEach(basketElem => counter += basketElem.counter * basketElem.cost);
+    return counter;
+  }, [reduxBasket]);
+
   React.useEffect(() => {
     const removeAction = (event: MouseEvent) => {
       const _event = event as MouseEvent & { path: Node[] }
@@ -27,12 +39,6 @@ const NavComponent: React.FC = () => {
     document.body.addEventListener("click", removeAction);
     return (() => document.body.removeEventListener("click", removeAction));
   }, []);
-  React.useEffect(() => {
-    setCostAllChoosedProduct(0);
-    reduxBasket.forEach(obj => {
-      setCostAllChoosedProduct(prevState => prevState + obj.cost * obj.counter);
-    })
-  }, [reduxBasket]);
   return(
     <>
       <div className={ style.info }>
@@ -58,8 +64,8 @@ const NavComponent: React.FC = () => {
         <div className={ style.basket }>
           <div>
             <div onClick={ () => setOpenedBasketForm(prevState => !prevState) }> Ваша корзина </div>
-            <div onClick={ () => setOpenedBasketForm(prevState => !prevState) } className={ style.orange }> { costAllChoosedProduct }Р </div>
-            <div onClick={ () => setOpenedBasketForm(prevState => !prevState) } className={ style.basketCounter }> { reduxBasket.length } </div>
+            <div onClick={ () => setOpenedBasketForm(prevState => !prevState) } className={ style.orange }> { costAllChoosedProduct() }Р </div>
+            <div onClick={ () => setOpenedBasketForm(prevState => !prevState) } className={ style.basketCounter }> { basketCounterProducts() } </div>
             { openedBasketForm && <div ref={ basketForm } className={ style.wrapedBasketComponent }><BasketForm /></div> }
           </div>
           <img onClick={ () => setOpenedBasketForm(prevState => !prevState) } src={ basketSvg } alt="" />

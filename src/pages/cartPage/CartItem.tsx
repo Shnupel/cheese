@@ -76,9 +76,9 @@ const CartItem: React.FC = () => {
       <CartSlider type="analog" />
       <div className={ style.tabsWrapper }>
         <div className={ style.tabs }> 
-          <div className={ style.tab }>Описание</div>
-          <div className={ style.tab }>Доставка и оплата</div>
-          <div className={ style.tab }>Отзывы (3)</div>
+          { data?.about && <div className={ style.tab }>Описание</div> }
+          {/* <div className={ style.tab }>Доставка и оплата</div> */}
+          { data?.userExperience && <div className={ style.tab }>Отзывы (3)</div> }
         </div>
         <div className={ style.tabsContent }>
           <div className={ style.tabContent }> { data?.about } </div>

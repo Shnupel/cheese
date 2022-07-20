@@ -7,5 +7,6 @@ export interface ICartProduct {
   category: number,
   about?: string,
   includes?: string,
-  counter: number
+  counter: number,
+  userExperience?:string
 }

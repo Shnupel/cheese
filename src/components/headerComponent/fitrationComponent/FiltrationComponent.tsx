@@ -8,17 +8,15 @@ const FiltrationComponent: React.FC = () => {
   const [openingMenu, setOpeningMenu] = React.useState(false);
   const [showStockProd, setShowStockProd] = React.useState(false);
   const loadingRequest = useSelector(loadingData);
-
   const [popupStatus, setPopupStatus] = React.useState(false);
   const popupRef = React.useRef<HTMLDivElement>(null);
   React.useEffect(() => {
     const addClass = (event: any) => {
-      if(!event.path.includes(popupRef.current)){
+      if(popupStatus && !event.path.includes(popupRef.current)){
         setPopupStatus(false);
       }
     }
     document.body.addEventListener("click", addClass);
-
     return (() => document.body.removeEventListener("click", addClass));
   }, [popupStatus]);
 
@@ -33,8 +31,8 @@ const FiltrationComponent: React.FC = () => {
           <>
             <div className={ style.filters }>
               <div className={ style.chooseFilters }>
-                <div className={ style.chooseFilter }> <span>От дорогих к дешевым</span> <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9.16675 14.6667L12.8334 11L9.16675 7.33334" stroke="#808080" strokeLinecap="round" strokeLinejoin="round"/></svg></div>
-                <div className={ style.chooseFilter }> <PopUpCategorys /> <span>Тип продукта</span> <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9.16675 14.6667L12.8334 11L9.16675 7.33334" stroke="#808080" strokeLinecap="round" strokeLinejoin="round"/></svg></div>
+                {/* <div className={ style.chooseFilter }> <span>От дорогих к дешевым</span> <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9.16675 14.6667L12.8334 11L9.16675 7.33334" stroke="#808080" strokeLinecap="round" strokeLinejoin="round"/></svg></div> */}
+                <div className={ style.chooseFilter } ref={ popupRef }> { popupStatus && <PopUpCategorys /> } <span onClick={ () => setPopupStatus((prevState) => !prevState) }>Тип продукта</span> <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9.16675 14.6667L12.8334 11L9.16675 7.33334" stroke="#808080" strokeLinecap="round" strokeLinejoin="round"/></svg></div>
               </div>
               <div className={ style.watchedProducts }>
                 <input style={{ display: "none" }} id="checkbox" type="checkbox" onClick={ () => setShowStockProd(prevShow => !prevShow) } />

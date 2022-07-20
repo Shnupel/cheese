@@ -2,8 +2,8 @@ import React from "react";
 import CategoryComponent from "../categorysComponent/CategoryComponent";
 import style from "./style.module.scss";
 
-export const ingridients = ["Закваски для сыра", "Ферменты для сыра", "Хлористый кальций", "Плесень для сыра", "Кисломолочные закваски", "Красители для сыра", "Специи для сыра"]
-export const equipment = ["Формы для сыра", "Латексное покрытие", "Воск для сыра", "Термоусадочные пакеты", "Дренажные коврики", "Дренажные мешки и салфетки для прессования", "Дренажные контейнеры"];
+export const ingridients = ["Закваски для сыра", "Ферменты для сыра", "Плесень для сыра", "Специи для сыра", "Красители для сыра"]
+export const equipment = ["Формы для сыра", "Воск для сыра", "Дренажные коврики"];
 
 const SidebarComponent: React.FC = () => {
   return(
