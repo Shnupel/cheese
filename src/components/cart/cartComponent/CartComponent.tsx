@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { addCart } from '../../../redux/slises/BasketSlice';
 import style from "./style.module.scss";
-import { ICartProduct } from '../../../types/types';
+import { ICartProduct } from '../../../types/CartType';
 
 const CartComponent: React.FC<{ product: ICartProduct }> = ({ product }) => {
   const dispatch = useDispatch();

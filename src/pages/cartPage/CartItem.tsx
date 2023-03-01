@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { filterState } from '../../redux/slises/FilterSlice';
 import { addCart } from '../../redux/slises/BasketSlice';
 import axios from "axios";
-import { ICartProduct } from "../../types/types";
+import { ICartProduct } from "../../types/CartType";
 import style from "./styles.module.scss";
 import cashSvg from "../../assets/img/icons/christmas-gift1.svg";
 import usabilityBuysSvg from "../../assets/img/icons/credit-cards.3.svg";
@@ -17,13 +17,16 @@ const CartItem: React.FC = () => {
   const [data, setData] = React.useState<ICartProduct>();
   const prodCategory = useSelector(filterState);
   React.useEffect(() => {
-    axios.get(`https://62b717d3491a19c97aee79aa.mockapi.io/${ prodCategory.typeCategory.categoryPathName }?id=${ param.id }`)
+    //http://localhost:4444/prod/12
+    //https://62b717d3491a19c97aee79aa.mockapi.io/${ prodCategory.typeCategory.categoryPathName }?id=${ param.id }
+    axios.get(`http://localhost:4444/prod/${ param.id }`)
     .then((responce) => responce.data)
     .then((result) => setData(result[0]))
   }, [param.id]);
   const increment = (data: ICartProduct) => {
     dispatch(addCart({...data, counter: 0}));
   }
+  
   return (
     <div className={ style.item }>
       <div className={ style.title }> { data?.name } </div>
@@ -37,12 +40,12 @@ const CartItem: React.FC = () => {
           <div className={ style.cost }>
             <div>
               <span> { data?.cost } руб.</span>
-              { data?.sale && <sup> { data?.cost + data?.sale } руб.</sup> }
+              {/* { data?.sale && <sup> { data?.cost + data?.sale } руб.</sup> } */}
             </div>
-            <div className={ style.choosed }>
+            {/* <div className={ style.choosed }>
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgba(253, 147, 57, 1)" className="bi bi-heart-fill" viewBox="0 0 16 16"><path fillRule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/></svg>
-              <span>В избранное</span>
-            </div>
+              <span>В корзине</span>
+            </div> */}
           </div>
           <div className={ style.bonus }>
             <span className={ style.cost }>+95</span> <span>бонусных рублей</span>

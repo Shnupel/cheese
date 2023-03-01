@@ -1,6 +1,6 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
-import { ICartProduct } from '../../types/types';
+import { ICartProduct } from '../../types/CartType';
 import { RootState } from '../store';
 
 interface CounterState {

@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { addCart, decrementCart, deleteCart } from '../../redux/slises/BasketSlice';
-import { ICartProduct } from '../../types/types';
+import { ICartProduct } from '../../types/CartType';
 import style from "./style.module.scss";
 
 interface IProps{

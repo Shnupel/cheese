@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ICartProduct } from '../../../types/types';
+import { ICartProduct } from '../../../types/CartType';
 import style from "./style.module.scss";
 interface IProps {
   product: ICartProduct
