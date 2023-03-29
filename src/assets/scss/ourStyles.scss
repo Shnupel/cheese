@@ -8,13 +8,15 @@
 body{
   background-color: #FFFBED;
   overflow-x: hidden;
+  font-family: "roboto";
 }
 
 .wrapper{
   max-width: 1200px;
-  margin: 0px auto;
+  margin: 0 auto;
   overflow: hidden;
   font-family: "roboto";
+  flex: 1 1 auto;
 }
 
 .bigText{

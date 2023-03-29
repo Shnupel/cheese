@@ -1,8 +1,8 @@
-import React from 'react';
-import { useParams } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { filterState } from '../../redux/slises/FilterSlice';
-import { addCart } from '../../redux/slises/BasketSlice';
+import { addCart, deleteAllCart } from '../../redux/slises/BasketSlice';
 import axios from "axios";
 import { ICartProduct } from "../../types/CartType";
 import style from "./styles.module.scss";
@@ -10,23 +10,49 @@ import cashSvg from "../../assets/img/icons/christmas-gift1.svg";
 import usabilityBuysSvg from "../../assets/img/icons/credit-cards.3.svg";
 import garantySvg from "../../assets/img/icons/social-medias-rewards-rating-10.svg";
 import CartSlider from '../../components/cart/cartsComponentSlider/CartSlider';
+import { ApiLink } from "../../constants/ApiLink";
+import { CheckIsLogin } from "../../components/headerComponent/service";
+import { addProduct } from "../../controllers/products";
+import UserSessionStorage from "../../storages/SessionStorage";
+import UserAuth from "../../controllers/auth";
 
 const CartItem: React.FC = () => {
   const dispatch = useDispatch();
   const param = useParams();
   const [data, setData] = React.useState<ICartProduct>();
-  const prodCategory = useSelector(filterState);
+  const navigate = useNavigate();
   React.useEffect(() => {
-    //http://localhost:4444/prod/12
-    //https://62b717d3491a19c97aee79aa.mockapi.io/${ prodCategory.typeCategory.categoryPathName }?id=${ param.id }
-    axios.get(`http://localhost:4444/prod/${ param.id }`)
+    axios.get(`${ ApiLink }/prod/${ param.id }`)
     .then((responce) => responce.data)
-    .then((result) => setData(result[0]))
+    .then((result) => setData(result))
   }, [param.id]);
   const increment = (data: ICartProduct) => {
+    if(!CheckIsLogin().isAuth){
+      navigate("/auth")
+    }
+    addProduct(data);
     dispatch(addCart({...data, counter: 0}));
   }
-  
+
+  const [userData, setUserData] = useState({ result: { data: { products: [] } } });
+  useEffect(() => {
+    if(UserSessionStorage.haveUserSession() !== ""){
+      UserAuth(UserSessionStorage.haveUserSession().email, UserSessionStorage.haveUserSession().password)
+        //@ts-ignore
+        .then(data => setUserData(data))
+    }
+  }, []);
+  useEffect(() => {
+    dispatch(deleteAllCart());
+    if(userData?.result?.data?.products){
+      userData.result.data.products.forEach((product: ICartProduct) => {
+        for(let i = 0; i < product.counter; i++){
+          dispatch(addCart(product));
+        }
+      });
+    }
+  }, [userData]);
+
   return (
     <div className={ style.item }>
       <div className={ style.title }> { data?.name } </div>
@@ -78,7 +104,7 @@ const CartItem: React.FC = () => {
       <div className="bigText">Аналогичные товары</div>
       <CartSlider type="analog" />
       <div className={ style.tabsWrapper }>
-        <div className={ style.tabs }> 
+        <div className={ style.tabs }>
           { data?.about && <div className={ style.tab }>Описание</div> }
           {/* <div className={ style.tab }>Доставка и оплата</div> */}
           { data?.userExperience && <div className={ style.tab }>Отзывы (3)</div> }

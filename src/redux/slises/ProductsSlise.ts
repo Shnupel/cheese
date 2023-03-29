@@ -2,6 +2,7 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 import { ICartProduct } from '../../types/CartType';
 import { RootState } from '../store';
+import { ApiLink } from "../../constants/ApiLink";
 
 interface CounterState {
   Products: ICartProduct[],
@@ -21,7 +22,7 @@ const initialState: CounterState = {
 
 export const fetchProducts = createAsyncThunk('users/fetchProducts',  async(categorys: { category: string, pathname: string }) => {
   const getCategory = categorys.category !== "-1" ? `category=${ categorys.category }` : "";
-  const { data } = await axios.get<ICartProduct[]>(`https://62b717d3491a19c97aee79aa.mockapi.io/${ categorys.pathname }?&${ getCategory }`);
+  const { data } = await axios.get<ICartProduct[]>(`${ ApiLink }/${ categorys.pathname }?&${ getCategory }`);
   return data;
 });
 

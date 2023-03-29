@@ -29,14 +29,14 @@
   .logoText{
     display: flex;
     flex-direction: column;
-  
+
     .boldText{
       font-size: 22px;
       text-transform: uppercase;
       color: $--brown !important;
       font-weight: 800;
     }
-    
+
     .finText{
       color: $--brown !important;
       font-size: 8px;
@@ -48,6 +48,7 @@
     display: flex;
     align-content: center;
     position: relative;
+    text-decoration: none;
     div{
       text-align: right;
       font-family: Roboto;
@@ -56,8 +57,20 @@
       line-height: 22px;
       letter-spacing: 0em;
       text-align: right;
+      text-decoration: none;
+      .basketLink{
+        font-family: Roboto;
+        text-decoration: none;
+        font-size: 14px;
+        font-weight: 700;
+        line-height: 22px;
+        letter-spacing: 0em;
+        text-align: right;
+        color: $--orange;
+      }
       .orange{
         font-family: Roboto;
+        text-decoration: none;
         font-size: 14px;
         font-weight: 700;
         line-height: 22px;
@@ -92,7 +105,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  
+
   .content{
     display: flex;
     align-items: center;

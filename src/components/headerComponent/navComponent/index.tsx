@@ -3,18 +3,20 @@ import { useSelector } from "react-redux";
 import { basketSliceSource } from "../../../redux/slises/BasketSlice";
 import style from "./style.module.scss";
 import SearchComponent from "./searchComponent/SearchComponent";
-import BasketForm from "./basketForm";
 import logoSvg from "../../../assets/img/icons/logo.svg";
 import deliverySvg from "../../../assets/img/icons/delivery.svg";
 import creditCart from "../../../assets/img/icons/credit-card-repeat.svg";
 import userProtectionSvg from "../../../assets/img/icons/user-protection-shield-square.svg";
 import basketSvg from "../../../assets/img/icons/shopping-cart.svg";
 import arrowSvg from "../../../assets/img/icons/arrows-diagrams-04.svg";
+import { Link, useNavigate } from "react-router-dom";
+import UserSessionStorage from "../../../storages/SessionStorage";
 
 const NavComponent: React.FC = () => {
   const reduxBasket = useSelector(basketSliceSource);
   const [openedBasketForm, setOpenedBasketForm] = React.useState(false);
   const basketForm = React.useRef<HTMLDivElement>(null);
+  const navigate = useNavigate();
 
   const basketCounterProducts = React.useCallback(() => {
     let counter: number = 0;
@@ -32,13 +34,21 @@ const NavComponent: React.FC = () => {
     const removeAction = (event: MouseEvent) => {
       const _event = event as MouseEvent & { path: Node[] }
       if(basketForm.current && openedBasketForm && !_event.path.includes(basketForm.current)){
-        console.log(_event.path, basketForm.current, openedBasketForm);
         setOpenedBasketForm(false);
       }
     }
     document.body.addEventListener("click", removeAction);
     return (() => document.body.removeEventListener("click", removeAction));
   }, []);
+
+  const RedirectToMyBasket = () => {
+    if(UserSessionStorage.haveUserSession() !==""){
+      navigate("/basket");
+    }else{
+      navigate("/auth");
+    }
+  }
+
   return(
     <>
       <div className={ style.info }>
@@ -61,12 +71,11 @@ const NavComponent: React.FC = () => {
           <img src={ userProtectionSvg } alt="" />
           <span>Защита покупателей</span>
         </div>
-        <div className={ style.basket }>
+        <div onClick={ () => RedirectToMyBasket() } className={ style.basket }>
           <div>
-            <div onClick={ () => setOpenedBasketForm(prevState => !prevState) }> Ваша корзина </div>
+            <div onClick={ () => setOpenedBasketForm(prevState => !prevState) } className={ style.basketLink }> Ваша корзина </div>
             <div onClick={ () => setOpenedBasketForm(prevState => !prevState) } className={ style.orange }> { costAllChoosedProduct() }Р </div>
             <div onClick={ () => setOpenedBasketForm(prevState => !prevState) } className={ style.basketCounter }> { basketCounterProducts() } </div>
-            { openedBasketForm && <div ref={ basketForm } className={ style.wrapedBasketComponent }><BasketForm /></div> }
           </div>
           <img onClick={ () => setOpenedBasketForm(prevState => !prevState) } src={ basketSvg } alt="" />
         </div>

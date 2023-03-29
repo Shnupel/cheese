@@ -9,7 +9,10 @@ import BasketPage from "./pages/basketPage";
 import CartPage from './pages/cartPage/CartPage';
 import CategoryPage from './pages/categoryPage/CategoryPage';
 import HomePage from './pages/homePage';
-
+import LoginComponent from "./components/loginComponent";
+import RegisterComponent from "./components/registerComponent";
+import AuthPage from "./pages/AuthPage";
+import RegisterPage from "./pages/RegisterPage";
 export const useAppDispatch: () => AppDispatch = useDispatch;
 export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;
 
@@ -29,7 +32,9 @@ function App() {
           <Route index element={<HomePage />} />
           <Route path="/cartPage/:id" element={ <CartPage /> } />
           <Route path="/categoryPage" element={ <CategoryPage /> } />
-          <Route path="/basketPage" element={ <BasketPage /> } />
+          <Route path="/basket" element={ <BasketPage /> } />
+          <Route path="/auth" element={ <AuthPage /> } />
+          <Route path="/register" element={ <RegisterPage /> } />
         </Route>
       </Routes>
     </div>

@@ -1,5 +1,6 @@
-import React from "react";
-import { useSelector } from "react-redux";
+
+import React, { useEffect, useRef, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { loadingStatus, loadingData } from "../../redux/slises/ProductsSlise";
 import style from "./styles.module.scss";
 import "../../assets/scss/ourStyles.scss";
@@ -7,12 +8,58 @@ import SidebarComponent from "../../components/sidebar/SidebarComponent";
 import readMorreArrowSvg from "../../assets/img/icons/arrows-diagrams-043.svg";
 import ListCartsComponent from "../../components/cart/cartsComponentBlocks/CartsComponent";
 import CartSlider from "../../components/cart/cartsComponentSlider/CartSlider";
+import { Outlet } from "react-router-dom";
+import { addCart, deleteAllCart } from "../../redux/slises/BasketSlice";
+import { ICartProduct } from "../../types/CartType";
+import UserAuth from "../../controllers/auth";
+import UserSessionStorage from "../../storages/SessionStorage";
+import { CheckIsLogin } from "../../components/headerComponent/service";
+
+import ImageCheeseDish from "../../assets/img/image/Rectangle6.jpg"
 
 const HomePage: React.FC = () => {
   const loadStatus = useSelector(loadingData);
+  const [userData, setUserData] = useState({ result: { data: { products: [] } } });
+  const dispatch = useDispatch();
+  useEffect(() => {
+    if(UserSessionStorage.haveUserSession() !== "" && UserSessionStorage.haveUserSession() !== "{}") {
+      UserAuth(UserSessionStorage.haveUserSession().email, UserSessionStorage.haveUserSession().password)
+        //@ts-ignore
+        .then(data => setUserData(data))
+    }
+  }, []);
+  useEffect(() => {
+    if(userData?.result?.data?.products){
+      dispatch(deleteAllCart());
+      userData.result.data.products.forEach((product: ICartProduct) => {
+        for(let i = 0; i < product.counter; i++){
+          dispatch(addCart(product));
+        }
+      });
+    }
+  }, [userData]);
+
+  const counter = useRef(0);
+  useEffect(() => {
+    if(counter.current < 3){
+      counter.current++;
+      if(userData?.result?.data?.products){
+        dispatch(deleteAllCart());
+        userData.result.data.products.forEach((product: ICartProduct) => {
+          for(let i = 0; i < product.counter; i++){
+            dispatch(addCart(product));
+          }
+        });
+      }
+    }else{
+      counter.current = 0;
+    }
+  })
+
   return(
     <>
       <div className={ style.carts }>
+        <Outlet />
         <div className={ style.bigCart }>
           <div className={ style.title }>Наборы для сыроделия</div>
           <div className={ style.subTitle }>Все что вам нужно для приготовления сыра в домашних условиях</div>
@@ -64,7 +111,7 @@ const HomePage: React.FC = () => {
         </div>
         <div className={ style.carts }>
           <div className={ style.cart }>
-            <img src="../../assets/img/image/Rectangle6.jpg" alt="" />
+            <img src={ ImageCheeseDish } alt="" />
             <div className={ style.content }>
               <div className={ style.title }>Сырная тарелка</div>
               <div className={ style.subTitle }>Так называется блюдо, которое состоит из разных сортов сыра. </div>
@@ -72,7 +119,7 @@ const HomePage: React.FC = () => {
             </div>
           </div>
           <div className={ style.cart }>
-            <img src="../../assets/img/image/Rectangle6.jpg" alt="" />
+            <img src={ ImageCheeseDish } alt="" />
             <div className={ style.content }>
               <div className={ style.title }>Сырная тарелка</div>
               <div className={ style.subTitle }>Так называется блюдо, которое состоит из разных сортов сыра. </div>
@@ -80,7 +127,7 @@ const HomePage: React.FC = () => {
             </div>
           </div>
           <div className={ style.cart }>
-            <img src="../../assets/img/image/Rectangle6.jpg" alt="" />
+            <img src={ ImageCheeseDish } alt="" />
             <div className={ style.content }>
               <div className={ style.title }>Сырная тарелка</div>
               <div className={ style.subTitle }>Так называется блюдо, которое состоит из разных сортов сыра. </div>
@@ -88,7 +135,7 @@ const HomePage: React.FC = () => {
             </div>
           </div>
           <div className={ style.cart }>
-            <img src="../../assets/img/image/Rectangle6.jpg" alt="" />
+            <img src={ ImageCheeseDish } alt="" />
             <div className={ style.content }>
               <div className={ style.title }>Сырная тарелка</div>
               <div className={ style.subTitle }>Так называется блюдо, которое состоит из разных сортов сыра. </div>

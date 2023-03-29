@@ -33,10 +33,13 @@ const basketSlice = createSlice({
     },
     deleteCart: (state, action: { payload: ICartProduct }) => {
       state.basket = state.basket.filter(_basket => _basket.id !== action.payload.id);
+    },
+    deleteAllCart: (state) => {
+      state.basket = [];
     }
   }
 })
 
-export const { addCart, decrementCart, deleteCart } = basketSlice.actions;
+export const { addCart, decrementCart, deleteCart, deleteAllCart } = basketSlice.actions;
 export const basketSliceSource = ((state: RootState) => state.basket.basket);
 export default basketSlice.reducer;
