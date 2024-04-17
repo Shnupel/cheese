@@ -11,6 +11,9 @@ const CartSlider: React.FC<{ type: string }> = (props) => {
   const CartSlide = props.type === "analog" ? CartComponentAnalog : CartComponent;
   const ourProducts = useSelector((state: RootState) => state.product.Products);
   const slidesPerView = props.type === "analog" ? 3 : 5 ;
+  React.useEffect(() => {
+      console.log(ourProducts)
+  }, [ourProducts])
   return (
     <>
       <Swiper

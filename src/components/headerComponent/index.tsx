@@ -33,7 +33,7 @@ const HeaderComponent: React.FC = () =>{
     <div className={ style.header }>
       <div className={ style.top }>
         <div className={ style.left }>
-          <div className={ style.info }> <img src={ locationSvg } alt=""/> <span>Ваш город: Москва</span> </div>
+          <div className={ style.info }> <img src={ locationSvg } alt=""/> <span>Ваш город: Уфа</span> </div>
           <div className={ style.info }> <img src={ timeSvg } alt="" className={ style.time }/> <span>Пн-Пт 9:00 - 19:00</span> </div>
         </div>
         <div className={ style.about }>

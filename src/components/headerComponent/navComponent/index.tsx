@@ -92,7 +92,7 @@ const NavComponent: React.FC = () => {
           <div className={ style.item }>Вопросы и ответы</div>
           <div className={ style.item }>Контакты</div>
         </div>
-        <SearchComponent />
+        {/*<SearchComponent />*/}
       </div>
     </>
   )

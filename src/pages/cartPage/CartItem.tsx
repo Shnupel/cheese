@@ -11,6 +11,7 @@ import usabilityBuysSvg from "../../assets/img/icons/credit-cards.3.svg";
 import garantySvg from "../../assets/img/icons/social-medias-rewards-rating-10.svg";
 import CartSlider from '../../components/cart/cartsComponentSlider/CartSlider';
 import { ApiLink } from "../../constants/ApiLink";
+// import { MockApiLink as ApiLink } from "../../constants/ApiLink";
 import { CheckIsLogin } from "../../components/headerComponent/service";
 import { addProduct } from "../../controllers/products";
 import UserSessionStorage from "../../storages/SessionStorage";
